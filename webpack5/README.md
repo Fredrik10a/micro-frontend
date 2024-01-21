@@ -7,7 +7,7 @@ Your insights and suggestions for refinement are not just welcomed but highly va
 ## Features 🛠️
 
 - **Implemented**
-  - APPs are designed to be isolated and work independently. The host gracefully handles any offline APP without throwing errors.
+  - APPs are designed to be isolated and work independently. The host gracefully handles any offline APP.
 
 - **Not Implemented**
   - All nodes sharing a common `styles.css`.
