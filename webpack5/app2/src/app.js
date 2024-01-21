@@ -4,7 +4,7 @@ import "./styles.css";
 const App = () => {
   return (
     <div className="App">
-      <h1>This is the second app</h1>
+      <h1>Hello from the second app</h1>
     </div>
   );
 };

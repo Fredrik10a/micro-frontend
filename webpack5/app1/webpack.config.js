@@ -9,12 +9,12 @@ module.exports = {
 
   output: {
     publicPath: "http://localhost:8081/",
-    uniqueName: 'remote1' // avoid conflict with other remotes
+    uniqueName: 'REMOTE_APP1' // avoid conflict with other remotes
     // https://webpack.js.org/concepts/module-federation/#collision-between-modules-from-different-remotes
   },
 
   devServer: {
-    port: 8081
+    port: 8081 // enable dedicated port for localhost
   },
 
   resolve: {
@@ -60,8 +60,8 @@ module.exports = {
   
   plugins: [
     new ModuleFederationPlugin({
-      name: "first",
-      library: { type: 'var', name: 'first' },
+      name: "APP1",
+      library: { type: 'var', name: 'APP1' },
       filename: "remoteEntry.js",
       remotes: {
       },
@@ -69,17 +69,16 @@ module.exports = {
         "./App": "./src/app.js"
       },
       shared: {
-        // and shared
-        ...dependencies, // some other dependencies
+        ...dependencies,
         react: {
-          // react
           singleton: true,
-          requiredVersion: dependencies["react"],
+          requiredVersion: dependencies['react'],
+          eager: true,
         },
         "react-dom": {
-          // react-dom
           singleton: true,
           requiredVersion: dependencies["react-dom"],
+          eager: true,
         },
       },
     }),

@@ -8,6 +8,7 @@ module.exports = {
 
   output: {
     publicPath: "http://localhost:8080/",
+    uniqueName: 'HOST' // avoid conflict with other remotes
   },
 
   devServer: {
@@ -53,23 +54,21 @@ module.exports = {
       name: "HOST_APP",
       filename: "remoteEntry.js",
       remotes: {
-        a: "first@http://localhost:8081/remoteEntry.js",
-        b: "second@http://localhost:8082/remoteEntry.js"
+        APP1: "APP1@http://localhost:8081/remoteEntry.js",
+        APP2: "APP2@http://localhost:8082/remoteEntry.js"
       },
       exposes: {},
       shared: {
-        // and shared
-        ...dependencies, // some other dependencies
+        ...dependencies,
         react: {
-          // react
           singleton: true,
           requiredVersion: dependencies["react"],
           eager: true
         },
         "react-dom": {
-          // react-dom
           singleton: true,
           requiredVersion: dependencies["react-dom"],
+          eager: true
         },
       },
     }),

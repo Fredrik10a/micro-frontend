@@ -1,5 +1,5 @@
 import * as React from 'react';
-import App from './app';
+import App from './host/app';
 import "./styles.css";
 
 export default function MainApp() {

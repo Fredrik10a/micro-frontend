@@ -1,28 +1,32 @@
-# Microfrontend fundamental setup using Webpack5
+# Microfrontend Fundamental Setup using Webpack5
 
-This is a project that uses Webpack5 to showcase a Microfrontend setup.
-The project contains of one Host and two remote APPs, APP1 and APP2.
+🚀 Welcome to the MicroFrontend Fundamental Setup repository, powered by Webpack 5! This setup is meticulously crafted to ensure a seamless MicroFrontend experience with the confirmed reliability of "webpack5."
 
-## Usage
+Your insights and suggestions for refinement are not just welcomed but highly valued. Our objective is to maintain simplicity while guaranteeing practical applicability in real-life scenarios.
 
-```python
-import foobar
+## Features 🛠️
 
-# returns 'words'
-foobar.pluralize('word')
+- **Implemented**
+  - APPs are designed to be isolated and work independently. The host gracefully handles any offline APP without throwing errors.
 
-# returns 'geese'
-foobar.pluralize('goose')
+- **Not Implemented**
+  - All nodes sharing a common `styles.css`.
+  - All nodes sharing some form of state management.
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+## Getting started
 
-## Contributing
+cd host && yarn install && yarn build:dev && yarn start
+cd app1 && yarn install && yarn build:dev && yarn start
+cd app2 && yarn install && yarn build:dev && yarn start
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+Open http://localhost:8080 to view Host
+Open http://localhost:8081 to view APP1
+Open http://localhost:8082 to view APP2
 
-## License
+## Contributing 🤝
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Feel free to submit pull requests. For significant changes, it's advisable to open an issue first to initiate a thoughtful discussion and coordinate proposed modifications.
+
+## License 📝
+
+This project operates under the [MIT License](https://choosealicense.com/licenses/mit/). Your collaboration is not just welcomed; it's crucial—thank you for being a part of this journey!
