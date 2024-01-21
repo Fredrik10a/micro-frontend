@@ -1,7 +1,7 @@
 import { registerApplication, start } from 'single-spa';
 import { bootstrap, mount, unmount } from './src/root.component';
 
-// Register host application with error handling
+// Register host application
 registerApplication({
   name: 'host',
   app: () => import('./src/root.component.js'),

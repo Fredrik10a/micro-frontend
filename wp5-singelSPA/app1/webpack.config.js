@@ -1,12 +1,17 @@
 const { ModuleFederationPlugin } = require('webpack').container;
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
 
 module.exports = {
-  entry: './src/app.js', // Adjust the entry file as needed
+  entry: './src/app.js',
   output: {
-    publicPath: 'http://localhost:8082/', // Adjust the URL as needed
+    publicPath: 'http://localhost:8081/',
   },
   devServer: {
-    port: 8082,
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    port: 8081,
   },
   module: {
     rules: [
@@ -21,22 +26,17 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app2',
+      name: 'app1',
+      library: { type: 'var', name: 'app1' },
       filename: 'remoteEntry.js',
       exposes: {
-        './App2': './src/App',
+        './App': './src/App',
       },
       shared: {
-        react: {
-          singleton: true,
-          requiredVersion: '^17.0.0',
-        },
-        'react-dom': {
-          singleton: true,
-          requiredVersion: '^17.0.0',
-        },
-        // Add other shared dependencies here
       },
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "public", "index.html"),
     }),
   ],
 };

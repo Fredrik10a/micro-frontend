@@ -14,14 +14,15 @@ Your insights and suggestions for refinement are not just welcomed but highly va
   - All nodes sharing some form of state management.
 
 ## Getting started
-
+```
 cd host && yarn install && yarn build:dev && yarn start
 cd app1 && yarn install && yarn build:dev && yarn start
 cd app2 && yarn install && yarn build:dev && yarn start
+```
 
-Open http://localhost:8080 to view Host
-Open http://localhost:8081 to view APP1
-Open http://localhost:8082 to view APP2
+- Open http://localhost:8080 to view Host
+- Open http://localhost:8081 to view APP1
+- Open http://localhost:8082 to view APP2
 
 ## Contributing 🤝
 

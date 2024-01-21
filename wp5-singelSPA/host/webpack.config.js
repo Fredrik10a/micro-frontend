@@ -4,11 +4,10 @@ const { ModuleFederationPlugin } = require('webpack').container;
 module.exports = {
   entry: './index.js',
   output: {
-    publicPath: 'http://localhost:8080/', // Adjust the URL as needed
+    publicPath: 'http://localhost:8080/',
   },
   devServer: {
     devMiddleware: {
-      // other configurations...
       // Ensure that source maps are enabled
       writeToDisk: true,
     },
@@ -35,8 +34,8 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'host',
       remotes: {
-        "app1": 'app1@http://localhost:8081/remoteEntry.js', // Change the port as needed
-     //   app2: 'app2@http://localhost:8082/remoteEntry.js', // Change the port as needed
+        "app1": 'app1@http://localhost:8081/remoteEntry.js',
+     //   app2: 'app2@http://localhost:8082/remoteEntry.js',
       },
       shared: {
       },

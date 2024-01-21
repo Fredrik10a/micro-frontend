@@ -1,4 +1,4 @@
-# SingleSPA with Webpack (Not Working)
+# WIP - SingleSPA with Webpack
 
 🚧 This repository represents an ambitious attempt to set up SingleSPA with Webpack. However, it's crucial to note that the current implementation is not functioning as intended.
 
