@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --mode development",
-    "start": "webpack serve --open --mode development --watch-files ./src"
+    "start": "webpack serve --open --mode development --watch-files ./src",
+    "build": "webpack"
   },
   "dependencies": {
     "@babel/core": "^7.23.7",

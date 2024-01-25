@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  host-app:
+    build:
+      context: ./host
+    ports:
+      - "8080:8080"
+    image: module-federatio/host:latest
+
+  remote-app1:
+    build:
+      context: ./app1
+    expose:
+      - "8081"
+    environment:
+      - PORT=8081
+    image: module-federatio/app1:latest
+
+  remote-app2:
+    build:
+      context: ./app2
+    expose:
+      - "8082"
+    environment:
+      - PORT=8082
+    image: module-federatio/app2:latest
+
+  nested-app2:
+    build:
+      context: ./nested
+    expose:
+      - "8083"
+    environment:
+      - PORT=8083
+    image: module-federatio/nested1:latest
