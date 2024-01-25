@@ -9,7 +9,7 @@ module.exports = {
 
   output: {
     publicPath: "http://localhost:8081/",
-    uniqueName: 'REMOTE_APP1' // avoid conflict with other remotes
+    uniqueName: 'REMOTEAPP1' // avoid conflict with other remotes
     // https://webpack.js.org/concepts/module-federation/#collision-between-modules-from-different-remotes
   },
 

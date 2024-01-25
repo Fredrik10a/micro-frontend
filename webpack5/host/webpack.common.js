@@ -1,24 +1,22 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { dependencies } = require("./package.json");
 
 module.exports = {
-  entry: "./src/index.js",
-
+  entry: './src/index.js',
   output: {
     publicPath: "http://localhost:8080/",
     uniqueName: 'HOST' // avoid conflict with other remotes
   },
-
-  devServer: {
-    port: 8080
-  },
-
   resolve: {
     extensions: [".css", ".scss", ".js", ".jsx"],
   },
-
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
   module: {
     rules: [
       {
@@ -48,16 +46,16 @@ module.exports = {
       },
     ],
   },
-
   plugins: [
     new ModuleFederationPlugin({
-      name: "HOST_APP",
+      name: "HOST",
       filename: "remoteEntry.js",
       remotes: {
         APP1: "APP1@http://localhost:8081/remoteEntry.js",
         APP2: "APP2@http://localhost:8082/remoteEntry.js"
       },
-      exposes: {},
+      exposes: {
+      },
       shared: {
         ...dependencies,
         react: {
@@ -69,6 +67,10 @@ module.exports = {
           singleton: true,
           requiredVersion: dependencies["react-dom"],
           eager: true
+        },
+        '@mui/material' : {
+          singleton: true,
+          requiredVersion: '*',
         },
       },
     }),

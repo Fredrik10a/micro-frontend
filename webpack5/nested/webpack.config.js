@@ -8,13 +8,13 @@ module.exports = {
   entry: "./src/index.js",
 
   output: {
-    publicPath: "http://localhost:8082/",
-    uniqueName: 'REMOTEAPP2' // avoid conflict with other remotes
+    publicPath: "http://localhost:8083/",
+    uniqueName: 'NESTED1' // avoid conflict with other remotes
     // https://webpack.js.org/concepts/module-federation/#collision-between-modules-from-different-remotes
   },
 
   devServer: {
-    port: 8082 // enable dedicated port for localhost
+    port: 8083 // enable dedicated port for localhost
   },
 
   resolve: {
@@ -53,14 +53,13 @@ module.exports = {
   
   plugins: [
     new ModuleFederationPlugin({
-      name: "APP2",
+      name: "NESTED1",
+      library: { type: 'var', name: 'NESTED1' },
       filename: "remoteEntry.js",
-      // No library definition due to unknown char if defined in the remoteEntry.js
       remotes: {
-        NAPP1: "NESTED1@http://localhost:8083/remoteEntry.js"
       },
       exposes: {
-        "./App": "./src/components/main.js"
+        "./App": "./src/app.js"
       },
       shared: {
         ...dependencies,
@@ -73,7 +72,11 @@ module.exports = {
           singleton: true,
           requiredVersion: dependencies["react-dom"],
           eager: true,
-        }
+        },
+        '@mui/material' : {
+          singleton: true,
+          requiredVersion: '*',
+        },
       },
     }),
     new HtmlWebpackPlugin({

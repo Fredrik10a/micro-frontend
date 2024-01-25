@@ -9,12 +9,3 @@
   font-family: sans-serif;
   text-align: center;
 }
-
-.MicroApp input {
-  height: 32px;
-  border-radius: 8px;
-  border: 2px solid gray;
-  width: 350px;
-  padding-left: 10px;
-  padding-right: 10px;
-}

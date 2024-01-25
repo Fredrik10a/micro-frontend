@@ -1,7 +1,2 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './app.js';
-
-const container = document.getElementById('container');
-const root = createRoot(container);
-root.render(<App />);
+// This setup is to avoid: https://webpack.js.org/concepts/module-federation/#uncaught-error-shared-module-is-not-available-for-eager-consumption
+import('./bootstrap');

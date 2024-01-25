@@ -4,7 +4,7 @@ import "./styles.css";
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello from the second app</h1>
+      <h1>Hello from the nested app</h1>
     </div>
   );
 };
